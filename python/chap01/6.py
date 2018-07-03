@@ -10,7 +10,10 @@ def string_compression(chars):
         if chars[i] == chars[i-1]:
             counter += 1
         else:
-            c = c + str(counter) + chars[i]
+            if counter == 1:
+                c = c + chars[i]
+            else:
+                c = c + str(counter) + chars[i]
             counter = 1
     if counter > 1:
         return c + str(counter)
@@ -22,7 +25,7 @@ def string_compression(chars):
 class Test(unittest.TestCase):
     '''Test Cases'''
     data = [
-        ('aabcccccaaa', 'a2b1c5a3'),
+        ('aabcccccaaa', 'a2bc5a3'),
         ('abcdef', 'abcdef')
     ]
 
